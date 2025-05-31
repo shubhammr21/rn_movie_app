@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "rnmovieapp",
+    "scheme": "rn_movie",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
