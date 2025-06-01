@@ -6,10 +6,12 @@ import { icons } from "@/constants/icons"
 
 interface Props {
   placeholder: string
+  value?: string
   onPress?: () => void
+  onChangeText?: (text: string) => void
 }
 
-const SearchBar = ({ placeholder, onPress }: Props) => {
+const SearchBar = ({ placeholder, onPress, value, onChangeText }: Props) => {
   return (
     <View className="flex-row items-center rounded-full bg-dark-200 px-5 py-4">
       <Image
@@ -22,9 +24,9 @@ const SearchBar = ({ placeholder, onPress }: Props) => {
         className="ml-2 flex-1 text-white"
         placeholder={placeholder}
         placeholderTextColor="#A8B5DB"
-        value=""
+        value={value}
         onPress={onPress}
-        onChangeText={() => {}}
+        onChangeText={onChangeText}
       />
     </View>
   )
