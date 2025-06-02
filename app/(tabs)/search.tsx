@@ -8,6 +8,7 @@ import { icons } from "@/constants/icons"
 import { images } from "@/constants/images"
 import { useFetch } from "@/hooks/use-fetch"
 import { fetchMovies } from "@/services/api"
+import { updateSearchCount } from "@/services/appwrite"
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -24,6 +25,9 @@ export default function Search() {
     const timeout = setTimeout(async () => {
       if (searchQuery.trim()) {
         await refetch()
+        if ((movies?.results ?? []).length > 0) {
+          await updateSearchCount(searchQuery, (movies?.results ?? [])[0])
+        }
       } else {
         reset()
       }
